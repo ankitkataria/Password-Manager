@@ -1,0 +1,109 @@
+*{
+	box-sizing: border-box;
+}
+html,body{
+	padding:0;
+	margin:0;
+}
+
+/* register_index styles */
+
+.wrapper_register{
+	font-family: 'Droid Sans', sans-serif;
+	overflow: auto;
+	box-sizing: border-box;
+	position:fixed;
+	height:100%;
+	width:100%;
+	//border-left: 200px solid #2E567E;
+	//border-right: 200px solid #2E567E;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+
+}
+.new_user,.registered{
+	flex:0 0 400px;
+	//border:1px solid black;
+	height:350px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction:column;
+}
+
+.new_user{
+	border-left:2px solid #2E567E;
+}
+.main_head{
+	color:#313030;
+	margin-bottom:2%;
+	/*border:1px solid black;*/
+	clear:both;
+	padding: 10% auto;
+	border-bottom:3px solid #2E567E;
+}
+.main_body{
+	width:100%;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-bottom:5%;
+
+}
+.sign_up_head{
+
+	color:#313030;
+}
+.sign_up{
+	padding-left:10%;
+	padding-right: 10%;
+	width:100%;
+}
+.sign_up input[type=text],.sign_up input[type=password]{
+	width:100%;
+	margin-top:4%;
+	margin-bottom:4%;
+	border:none;
+	border-bottom: 2px solid #313030;
+	font-size: 1em;
+}
+
+.sign_up input[type=text]:focus,.sign_up input[type=password]:focus{
+	outline:none;
+	border:none;
+    border-bottom: 2px solid #2676C7;
+    transition: 0.5s;
+
+}
+.sign_up input:hover{
+	border-bottom: 2px solid #6A6969;
+}
+#btn_ctn{
+	margin-top:2%;
+	//border:1px solid black;
+	text-align:center;
+}
+.sign_up_btn{
+	font-size: 1em;
+	border:1px solid transparent;
+	border-radius: 4px;
+	display:inline-block;
+	padding:8px 16px;
+	color:white;
+	background-color:#2676C7 ;
+	transition: 0.5s ease;
+}
+.sign_up_btn:hover{
+	background-color: #2E567E;
+}
+@media only screen and (max-width: 800px)
+{
+	.new_user{
+		border:none;
+		border-top: 2px solid #2E567E;
+	}
+}
