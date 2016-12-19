@@ -107,3 +107,13 @@ html,body{
 		border-top: 2px solid #2E567E;
 	}
 }
+.error{
+	position:absolute;
+	right:0;
+	bottom:0;
+}
+
+.err{
+	display:inline;
+	color: red;
+}

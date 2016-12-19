@@ -1,3 +1,7 @@
+<?php
+	include("./assets/login.php");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,19 +21,26 @@
 				</div>
 				<div class="new_user">
 					<h2 class="sign_up_head"> New User? </h2>
-					<form class="sign_up">    
-						Email-Id:<br>
-						<input type="text" name="email" placeholder="foobar@example.com"><br>
-						Password:<br>
-						<input type="password" name="pass" placeholder="***********"><br>
-						Re-enter Password:<br>
-						<input type="password" name="pass_check" placeholder="***********"><br>
+					<form class="sign_up" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">    
+						Email-Id:<div class="err"> * <?php echo $emailErr;?></div><br>
+						<input type="text" name="email" placeholder="foobar@example.com"     value="<?php echo $_POST['email'];?>">
+						
+						<br>
+						Password:	<div class="err"> * <?php echo $passErr;?></div><br>
+						<input type="password" name="pass" placeholder="***********">
+					
+						<br>
+						Re-enter Password:<div class="err"> *</div><br>
+						<input type="password" name="pass_check" placeholder="***********">
+						
+						<br>
 						<div id="btn_ctn">
 						<button type="submit" class="sign_up_btn">Sign Up</button>
 						</div>
 					</form>	
 				</div>
-		</div>		
+		</div>	
+		<div class="error"><?php echo $error; ?></div>	
 	</div>
 </body>
 </html>
