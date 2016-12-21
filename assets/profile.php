@@ -1,4 +1,5 @@
 <?php 
 	session_start();
-	echo "hello mr.".$_SESSION['curr_user'];
+	$user=$_SESSION['curr_user'];
+	//echo "hello mr.".$_SESSION['curr_user'];
 ?>
