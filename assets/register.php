@@ -15,16 +15,16 @@
                 die("aborting connection".$co->connect_error);
 
 
-            $res=$co->query("select email,password from users");
+            $res=$co->query("select username,email,password from users");
             while($rw=$res->fetch_assoc())
             {
-                if($rw['email']==$user_check)
+                if($rw['username']==$user_check)
                     return true;
             }
             return false;
    }
-	 $q="";$error="";
-	 $emailErr="";$passErr="";
+	 $q="";$error="";$alert="";
+	 $emailErr="";$passErr="";$userErr="";
 
      $conn=new mysqli("localhost","root","toor");
      if($conn->select_db("pass_man")==false)
@@ -38,7 +38,8 @@
      		$conn->select_db("pass_man");
      		$q2="create table users
 			(	
-			email varchar(50) not null,			
+            username varchar(100) not null,
+			email varchar(100) not null,			
 			password varchar(500) not null
 			);
      		";
@@ -51,12 +52,20 @@
     	$error="the database already exits";
 
     if($_SERVER["REQUEST_METHOD"]=="POST"){
+        $user=test_input($_POST['user']);
     	$email=test_input($_POST['email']);
     	$pass=test_input($_POST['pass']);
     	$pass_check=test_input($_POST['pass_check']);
     	$ctr=1;
 
-
+        if(empty($user))
+        {
+            $userErr="Field cannot be empty";$ctr=0;
+        }
+        if(!preg_match('/^[a-zA-Z0-9_]*$/',$user))
+        {
+            $userErr="Invalid User Name";$ctr=0;
+        }
     	if(empty($pass)||empty($pass_check))
     	{
     		$ctr=0;
@@ -71,27 +80,45 @@
     		$emailErr="You should have an email";
     		$ctr=0;
     	}
+
     	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $emailErr = "Invalid email format"; $ctr=0;
         }
-        if(user_exists($email))
+        if(user_exists($user))
         {
-            $emailErr="Email already in use";
+            $userErr="Username already in use";
             $ctr=0;
         }
 
     	if($ctr==1)
     	{
-    		$email_db="";$sh_db="";
+    		$email_db="";$sh_db="";$user_db="";
     		$sh=sha1($pass);
-    		$stmt=$conn->prepare("insert into users values(?,?);");
-    		$stmt->bind_param("ss",$email_db,$sh_db);
+    		$stmt=$conn->prepare("insert into users values(?,?,?);");
+    		$stmt->bind_param("sss",$user_db,$email_db,$sh_db);
     		$email_db=$email;
+            $user_db=$user;
     		$sh_db=$sh;
     		if($stmt->execute())
     			$error="value executed";
 
     		$stmt->close();
+            $q2="create table ".$user."
+            (   
+            email varchar(50) not null,         
+            password varchar(500) not null
+            );
+            ";
+            //echo "$q2";
+            if($conn->query($q2))
+                {   $alert="<script>alert('Successfully registered. Proceed to Login Page.');</script>";
+                    $error="table of user created";
+                }
+            else
+            {   
+                $alert="<script>alert('Some Error occurred. Please try again after some time.');</script>";
+                $error="table of user not created";
+            }
 
     	}
     	$conn->close();

@@ -20,13 +20,13 @@
 				<div class="registered">
 					<h2 class="sign_up_head">Not A Registered User?</h2>
 					Sign In
-					<a href="#">Here</a>
+					<a class="here_link" href="register_index.php">Here</a>
 				</div>
 				<div class="new_user">
 					<h2 class="sign_up_head"> Sign In </h2>
 					<form class="sign_up" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">    
-						Email-Id:<div class="err"> * <?php echo $emailErr;?></div><br>
-						<input type="text" name="email" placeholder="foobar@example.com"     value="<?php echo $_POST['email'];?>">
+						Username:<div class="err"> * <?php echo $userErr;?></div><br>
+						<input type="text" name="user" placeholder="Monkey"     value="<?php echo $_POST['user'];?>">
 						
 						<br>
 						Password:	<div class="err"> * <?php echo $passErr;?></div><br>

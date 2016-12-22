@@ -6,8 +6,8 @@
 		return $data;
 
 	}
-	$error="";$emailErr="";
-	$email="";$pass="";
+	$error="";$userErr="";
+	$user="";$pass="";
 
 	$conn= new mysqli("localhost","root","toor","pass_man");
 		if($conn->connect_error)
@@ -17,21 +17,22 @@
 
 	if($_SERVER['REQUEST_METHOD']=="POST")
 	{		
-		$email=test_input($_POST['email']);
+		$user=test_input($_POST['user']);
 		$pass=test_input($_POST['pass']);
 		$ctr=1;
 
-		if(empty($email)||empty($pass))
+		if(empty($user)||empty($pass))
 		{	
-		 	$emailErr="All Fields are Compulsary";$ctr=0;
+		 	$userErr="All Fields are Compulsary";$ctr=0;
 		}
-		else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email format"; $ctr=0;
+	    else if(!preg_match('/^[a-zA-Z0-9_]*$/',$user))
+        {
+            $userErr="Invalid User Name";$ctr=0;
         }
         if($ctr==1)
         {
         	$sh=sha1($pass);
-        	$q="select password from users where email='".$email."';";
+        	$q="select username,password from users where username='".$user."';";
         	//echo $q;
         	//if($conn->query($q))
         	//	$error="successful man";
@@ -44,14 +45,18 @@
         		{
         			//$error="authentication complete";
         			session_start();
-        			$_SESSION['curr_user']=$email;
-        			header("location:profile_index.php");
+        			$_SESSION['curr_user']=$row['username'];
+        			//echo $row['username'];
+                    header("location:profile_index.php");
         		}
         		else
         		{
-        			$emailErr="Incorrect Username/Password";
+        			$userErr="Incorrect Username/Password";
         		}
         	}
+            else{
+                $userErr="Incorrect Username/Password";
+            }
 
         }
 

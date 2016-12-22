@@ -119,3 +119,8 @@ html,body{
 	color: red;
 }
 
+.here_link:hover,.here_link:visited{
+	display:inline-block;
+	color:red;
+	text-decoration:none;
+}
