@@ -6,7 +6,7 @@
 					$result=$conn->query("select email,password from ".$_SESSION['curr_user'].";");
 					//if($conn->query("select email,password from ".$_SESSION['curr_user'].";"))
 					//    echo "did it";
-					
+					$i=0;
 					//echo $result;
 					if($result->num_rows)
 					{
@@ -16,11 +16,12 @@
 								<tr>
 									<td>".$rw['email']."</td>
 									<td><input class='pass_field' type='password' value='".$rw['password']."'>
-									<button class='show_btn'>Show/Hide</button>	
+									<button class='show_btn' onclick='show_pass($i)'>Show/Hide</button>	
 
 									</td>
 								</tr>
 							";
+							$i++;
 						}
 				    }
 

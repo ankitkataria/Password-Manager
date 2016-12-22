@@ -87,7 +87,17 @@
 	<div class="modErr"><?php echo $modErr;?></div>
 	
 	<script type="text/javascript">
+	
+	function show_pass(ctr){	
+			var ele=document.getElementsByClassName("pass_field");
 		
+			var at=ele[ctr].getAttribute("type");
+			if(at=='password')
+				ele[ctr].setAttribute("type","text");
+			else
+				ele[ctr].setAttribute("type","password");
+		}	
+
 	$(document).ready(function(){
 		$("#addup").click(function(){
 			$("#over_add").slideDown(500);
@@ -103,8 +113,10 @@
 			$(".over").slideUp(500);
 
 		});
-		
+
 		<?php echo $modErrSc;?>
+
+		
 
 
 	});
