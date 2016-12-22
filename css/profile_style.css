@@ -68,6 +68,10 @@ table.pass_table th{
 	color:white;
 	background-color: #2676C7;
 }
+table.pass_table tr:nth-child(even)
+{
+	background-color: rgb(245,245,245);
+}
 
 div.main{
 }

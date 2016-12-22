@@ -27,23 +27,15 @@
 		
 		<div class="pass_table">
 			<table class="pass_table">
+				
 				<tr>
 					<th>Email Id</th>
 					<th>Passwords</th>
 				</tr>
-				<tr>
-						<td>Gmail</td>
-						<td>dont know</td>
-				</tr>		
-				<tr>
-						<td>Yahoo</td>
-						<td>dont use</td>
-				</tr>		
-		        <tr>
-						<td>Facebook</td>
-						<td>dont want to use</td>
-				</tr>		
-		        	        
+				<?php 
+					include("./assets/show_pass.php");
+				?>
+					        
 			</table>
 		</div>
 	</div>
@@ -78,7 +70,7 @@
 			</div>
 
 			<form class="addup form_temp" method="post">
-				Email:<br>
+				Email:<div class="err"> * <?php echo $email2Err;?></div><br>
 				<input type="text" placeholder="foobar@example.com" name="email2">
 				Re-enter Email:<br>
 				<input type="text" name="email2_check" placeholder="foobar@example.com">
@@ -111,7 +103,7 @@
 			$(".over").slideUp(500);
 
 		});
-
+		
 		<?php echo $modErrSc;?>
 
 
