@@ -99,14 +99,8 @@ html,body{
 	transition: 0.5s ease;
 }
 .sign_up_btn:hover{
+	//background-color: red;
 	background-color: #2E567E;
-}
-@media only screen and (max-width: 800px)
-{
-	.new_user{
-		border:none;
-		border-top: 2px solid #2E567E;
-	}
 }
 .error{
 	position:absolute;
@@ -119,8 +113,17 @@ html,body{
 	color: red;
 }
 
-.here_link:hover,.here_link:visited{
-	display:inline-block;
-	color:red;
-	text-decoration:none;
+.registered a{
+	color:#2E567E;
+	border-bottom: 1px dotted black;
+	text-decoration: none;
 }
+
+@media only screen and (max-width: 800px)
+{
+	.new_user{
+		border:none;
+		border-top: 2px solid #2E567E;
+	}
+}
+

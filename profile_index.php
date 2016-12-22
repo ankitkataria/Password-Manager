@@ -3,6 +3,7 @@
 	if(!isset($_SESSION['curr_user']))
 		header("location:login_index.php");
 	include("./assets/profile.php");
+	include("./assets/add_pass.php")
 ?>
 
 <!DOCTYPE html>
@@ -53,15 +54,15 @@
 			<div class="warning">
 				<span style="color:red">Note</span> :If the entered Email-Id Already Exists Then It Will Be Overwritten.
 			</div>
-			<form class="addup form_temp">
-				Email:<br>
+			<form class="addup form_temp" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+				Email:<div class="err"> * <?php echo $emailErr;?></div><br>
 				<input type="text" placeholder="foobar@example.com" name="email">
-				Password:<br>
+				Password:<div class="err"> * <?php echo $passErr;?></div><br>
 				<input type="password" name="pass" placeholder="***********">
-				Re-enter Password:<br>
-				<input type="text" name="pass_check" placeholder="***********">
+				Re-enter Password:<div class="err"> *</div><br>
+				<input type="password" name="pass_check" placeholder="***********">
 				<div id="btn_ctn">
-					<button type="submit" class="add_up_btn btn">Add/Update</button>
+					<input type="submit" class="add_up_btn btn" value="Add/Update" name="addup_sub"> 
 				</div>
 			</form>
 		</div>	
@@ -76,13 +77,13 @@
 				<span style="color:red">Note</span>:Enter the Email of the record to be deleted.This action cannot be reversed.
 			</div>
 
-			<form class="addup form_temp">
+			<form class="addup form_temp" method="post">
 				Email:<br>
-				<input type="text" placeholder="foobar@example.com" name="email">
+				<input type="text" placeholder="foobar@example.com" name="email2">
 				Re-enter Email:<br>
-				<input type="text" name="pass" placeholder="foobar@example.com">
+				<input type="text" name="email2_check" placeholder="foobar@example.com">
 				<div id="btn_ctn">
-					<button type="submit" class="add_up_btn btn">Delete</button>
+					<input type="submit" class="add_up_btn btn" value="Delete" name="del_sub">
 				</div>
 			</form>
 
@@ -91,6 +92,7 @@
 			</button>
 		</div>
 	</div>
+	<div class="modErr"><?php echo $modErr;?></div>
 	
 	<script type="text/javascript">
 		
@@ -110,7 +112,7 @@
 
 		});
 
-
+		<?php echo $modErrSc;?>
 
 
 	});

@@ -17,7 +17,7 @@
 				<div class="registered">
 					<h2 class="sign_up_head">Already A Registered User?</h2>
 					Sign In
-					<a class="here_link" href="login_index.php">Here</a>
+					<a id="here" href="login_index.php">Here</a>
 				</div>
 				<div class="new_user">
 					<h2 class="sign_up_head"> New User? </h2>

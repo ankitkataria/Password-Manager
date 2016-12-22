@@ -11,7 +11,7 @@
    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body class="register">
 	<div class="wrapper_register">
@@ -20,7 +20,7 @@
 				<div class="registered">
 					<h2 class="sign_up_head">Not A Registered User?</h2>
 					Sign In
-					<a class="here_link" href="register_index.php">Here</a>
+					<a href="register_index.php" id="here">Here</a>
 				</div>
 				<div class="new_user">
 					<h2 class="sign_up_head"> Sign In </h2>
