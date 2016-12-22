@@ -163,3 +163,12 @@ form.form_temp input[type=text]:focus,form.form_temp input[type=password]:focus{
 	opacity:0;
 	transition: opacity 0.5s ease;
 }
+.show_btn{
+	font-size:0.7em;
+	border:0px solid transparent;
+	background-color: #555555;
+	color:white;
+	border-radius:4%;
+	padding:1%;
+
+}
