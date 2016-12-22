@@ -23,7 +23,7 @@
 					<h2 class="sign_up_head"> New User? </h2>
 					<form class="sign_up" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"> 
 					 	User Name:<div class="err"> * <?php echo $userErr;?></div><br>
-						<input type="text" name="user" placeholder="Monkey"     value="<?php echo $_POST['user'];?>">  
+						<input type="text" name="user" placeholder="a-z,A-Z,0-9,_"     value="<?php echo $_POST['user'];?>">  
 						Email-Id:<div class="err"> * <?php echo $emailErr;?></div><br>
 						<input type="text" name="email" placeholder="foobar@example.com"     value="<?php echo $_POST['email'];?>">
 						
@@ -42,7 +42,7 @@
 					</form>	
 				</div>
 		</div>	
-		<div class="error"><?php echo $error; ?></div>	
+		<!-- <div class="error"><?php //echo $error; ?></div>	-->
 		<?php echo $alert; ?>
 	</div>
 </body>

@@ -8,8 +8,13 @@
 					//    echo "did it";
 					$i=0;
 					//echo $result;
-					if($result->num_rows)
+					if($result->num_rows>0)
 					{
+						echo "<table class='pass_table'>
+							 		<tr>
+										<th>Email Id</th>
+										<th>Passwords</th>
+									</tr>";
 					    while($rw=$result->fetch_assoc())
 						{	
 							echo "
@@ -23,6 +28,10 @@
 							";
 							$i++;
 						}
+						echo "</table>";
+				    }
+				    else{
+				    	echo "No passwords saved. Add A Password To Begin.";
 				    }
 
 

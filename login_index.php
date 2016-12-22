@@ -19,14 +19,14 @@
 		<div class="main_body">
 				<div class="registered">
 					<h2 class="sign_up_head">Not A Registered User?</h2>
-					Sign In
+					Register
 					<a href="register_index.php" id="here">Here</a>
 				</div>
 				<div class="new_user">
 					<h2 class="sign_up_head"> Sign In </h2>
 					<form class="sign_up" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">    
 						Username:<div class="err"> * <?php echo $userErr;?></div><br>
-						<input type="text" name="user" placeholder="Monkey"     value="<?php echo $_POST['user'];?>">
+						<input type="text" name="user" placeholder="a-z,A-Z,0-9,_"     value="<?php echo $_POST['user'];?>">
 						
 						<br>
 						Password:	<div class="err"> * <?php echo $passErr;?></div><br>
@@ -38,7 +38,7 @@
 					</form>	
 				</div>
 		</div>	
-		<div class="error"><?php echo $error; ?></div>	
+		<!--   <div class="error"><?php //echo $error; ?></div>	-->
 	</div>
 </body>
 </html>

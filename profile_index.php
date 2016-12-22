@@ -26,18 +26,12 @@
 		</nav>
 		
 		<div class="pass_table">
-			<table class="pass_table">
-				
-				<tr>
-					<th>Email Id</th>
-					<th>Passwords</th>
-				</tr>
+			
 				<?php 
 					include("./assets/show_pass.php");
 				?>
 					        
-			</table>
-		</div>
+			
 	</div>
 
 	<div class="over" id="over_add">
